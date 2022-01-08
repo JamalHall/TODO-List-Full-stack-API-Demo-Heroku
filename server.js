@@ -1,7 +1,7 @@
 const PORT = process.env.PORT || 8000
 const express = require('express')
 const app = express()
-const MongoClient = require('mongodb').MongoClient
+//const MongoClient = require('mongodb').MongoClient
 require('dotenv').config()
 
 ////EJS Setup////
