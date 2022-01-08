@@ -1,7 +1,9 @@
 const PORT = process.env.PORT || 8000
 const express = require('express')
 const app = express()
-//const MongoClient = require('mongodb').MongoClient
+const MongoClient = require('mongodb').MongoClient
+const uri = "mongodb+srv://JH:tml0fuCYdqmSBpM6@cluster0.e0axb.mongodb.net/todoList?retryWrites=true&w=majority";
+
 require('dotenv').config()
 
 ////EJS Setup////
@@ -11,14 +13,17 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 ////DB connection////
-const { MongoClient } = require('mongodb');
-const uri = "mongodb+srv://JH:tml0fuCYdqmSBpM6@cluster0.e0axb.mongodb.net/todoList?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
+let db,
+    dbConnectionStr = uri,
+    dbName = 'todoList' 
+
+
+MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true })
+    .then(client => {
+        console.log(`Connected to ${dbName} Database`)
+        db = client.db(dbName)
+    })
+        
  
 ////POST////
     
