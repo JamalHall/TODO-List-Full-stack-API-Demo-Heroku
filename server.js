@@ -2,8 +2,6 @@ const PORT = process.env.PORT || 8000
 const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
-const uri = "mongodb+srv://JH:tml0fuCYdqmSBpM6@cluster0.e0axb.mongodb.net/todoList?retryWrites=true&w=majority";
-
 require('dotenv').config()
 
 ////EJS Setup////
@@ -14,7 +12,7 @@ app.use(express.json())
 
 ////DB connection////
 let db,
-    dbConnectionStr = uri,
+    dbConnectionStr = process.env.DB_STRING,
     dbName = 'todoList' 
 
 
