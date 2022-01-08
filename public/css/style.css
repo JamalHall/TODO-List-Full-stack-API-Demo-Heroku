@@ -1,0 +1,8 @@
+.stat {
+    display: none;
+  }
+  
+  #on {
+    text-decoration: line-through;
+    color: red;
+  }

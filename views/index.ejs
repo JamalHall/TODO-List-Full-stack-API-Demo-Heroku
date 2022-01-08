@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+    <h1>TODO List Full Stack Demo</h1>
+    <ul class="listItems"> <!-- listed task updated with ejs from server-->
+    <h2>Current Task</h2>
+        <% for(let i=0; i < info.length; i++) {%>   
+            <li class="item">
+            <span class='fa fa-circle-notch'> </span>             
+            <span id = "off" class='itm' ><%= info[i].taskItem %></span>
+            <span class='dte' ><%= info[i].date %></span>
+            <span class='fa fa-trash'>delete</span>
+            <span class='stat'><%= info[i].status %></span>
+            <!-- The info variable is the data from the fetch the variable is declared in and passed from server.js   -->
+        </li>
+    <% } %>
+    </ul>
+    <h3>Add A Task:</h3>  
+    <form action="/updateList" method="POST">
+         <input type="text" placeholder=" Task" name="taskItem">
+         <input type="date" placeholder="Finish By" name="date">
+         <input type="submit" >
+     </form>
+    
+  
+     <script src='/js/main.js'></script>
+</body>
+</html>
