@@ -20,8 +20,13 @@ circleArr.forEach((element)=>{
     element.addEventListener('click', taskStatus) 
 })
 
-statArr.forEach((element)=> {
+/// totals///
+let remaining = statArr.filter(e=>e==false).length
+document.getElementsByClassName('tot').innerText = remaining
+////////
 
+statArr.forEach((element)=> {
+    
     if(element.innerText=='false'){
         element.parentNode.firstElementChild.className='fa fa-circle-notch'
         element.parentNode.getElementsByClassName('itm')[0].id='off'
