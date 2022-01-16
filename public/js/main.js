@@ -21,8 +21,8 @@ circleArr.forEach((element)=>{
 })
 
 /// totals///
-let remaining = statArr.filter(e=>e.innerText==false).length
-document.getElementsByClassName('tot').innerText = remaining
+let remaining = statArr.map(e=>e.innerText==false).length
+document.querySelector('.tot').innerText = remaining
 ////////
 
 statArr.forEach((element)=> {
